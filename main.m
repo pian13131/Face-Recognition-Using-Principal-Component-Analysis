@@ -15,7 +15,8 @@ end
 mean_face = mean(t_set,2);
 cov = t_set - mean_face;
 [eig_vec, eig_val] = eig(cov'*cov);
-eig_face = normc(cov * eig_vec);
+% [~, index] = sort(abs(diag(eig_val)));
+eig_face = fliplr(normc(cov * eig_vec));
 
 % Reconstruct one of 190 individuals? neutral expression image %
 figure;
@@ -49,12 +50,19 @@ subplot(2,2,4);
 reconstruct(200,'a',190);
 % Use other non-human image %
 figure;
+subplot(1,2,1);
+path_face = [path,'777a.jpg'];
+I = imread(path_face);
+imshow(I);
+title('Origin Image');
+subplot(1,2,2);
 reconstruct(777,'a',190);
 % Rotate one of 190 individuals? neutral expression 
 % image with different degrees 
 path_face = [path,'1a.jpg'];
 I = imread(path_face);
 angle = [0, 45, 90, 180];
+figure;
 for i = 1:4
 test_face = imrotate(I, angle(i), 'crop');
 test_face_vec = reshape(test_face,row*col,1);
