@@ -7,13 +7,6 @@ test_face_vec = reshape(test_face,row*col,1);
 test_face_vec = double(test_face_vec);
 test_face_vec = ef*ef'*(test_face_vec - mean_face) + mean_face;
 res_face = reshape(test_face_vec,row,col);
-
-figure;
-subplot(1,2,1);
-imshow(test_face);
-title('Origin Face');
-
-subplot(1,2,2);
 imshow(mat2gray(res_face));
 title(['Reconstruct Face PCs = ', mat2str(pca_n)]);
 end

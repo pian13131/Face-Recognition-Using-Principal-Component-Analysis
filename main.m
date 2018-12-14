@@ -18,21 +18,37 @@ cov = t_set - mean_face;
 eig_face = normc(cov * eig_vec);
 
 % Reconstruct one of 190 individuals? neutral expression image %
+figure;
+subplot(2,2,1);
 reconstruct(1,'a',10);
+subplot(2,2,2);
 reconstruct(1,'a',50);
+subplot(2,2,3);
 reconstruct(1,'a',120);
+subplot(2,2,4);
 reconstruct(1,'a',190);
 % Reconstruct one of 190 individuals? smiling expression image %
+figure;
+subplot(2,2,1);
 reconstruct(1,'b',10);
+subplot(2,2,2);
 reconstruct(1,'b',50);
+subplot(2,2,3);
 reconstruct(1,'b',120);
+subplot(2,2,4);
 reconstruct(1,'b',190);
 % Reconstruct one of the other 10 individuals? neutral expression image %
+figure;
+subplot(2,2,1);
 reconstruct(200,'a',10);
+subplot(2,2,2);
 reconstruct(200,'a',50);
+subplot(2,2,3);
 reconstruct(200,'a',120);
+subplot(2,2,4);
 reconstruct(200,'a',190);
 % Use other non-human image %
+figure;
 reconstruct(777,'a',190);
 % Rotate one of 190 individuals? neutral expression 
 % image with different degrees 
